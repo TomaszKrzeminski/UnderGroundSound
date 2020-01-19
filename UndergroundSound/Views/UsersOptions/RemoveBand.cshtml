@@ -1,0 +1,53 @@
+﻿@model List<Band>
+@{
+    ViewData["Title"] = "RemoveBand";
+}
+
+
+
+
+
+
+
+<div class="container">
+
+    <form method="post" asp-action="RemoveBand" asp-controller="UsersOptions">
+        <h1 class="text text-center">Usuń Zespół</h1>
+        <br />
+        @if (Model != null)
+        {
+        <table class="table table-responsive">
+            @foreach (var item in Model)
+            {
+           <tbody>
+               <tr>
+                   <td ><h5>@item.BandName</h5></td>
+                   <td><button type="submit" class="btn btn-danger">Usuń</button></td>
+                   <td> <a class="nav-item nav-link btn btn-warning" @*style="color:white" *@ asp-action="UsersPanel" asp-controller="Home"> Anuluj </a></td><td><input type="hidden" name="BandId" value="@item.BandId" /></td>
+                   
+               </tr>
+           </tbody>
+
+               
+               
+                
+               
+          
+            }
+        </table>
+           
+
+
+
+
+
+        }
+
+
+    </form>
+
+
+
+
+
+</div>

@@ -1,0 +1,247 @@
+﻿@model HomePageViewModel
+
+
+<style>
+    .nounderline {
+        text-decoration: none !important
+    }
+</style>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container container-fluid">
+    <div class="row">
+
+
+        @if (Model.MusicGenres.Any())
+        {
+            foreach (var musicgenre in Model.MusicGenres)
+            {
+                @*<div class="col-sm-2 border  text-center bg-dark"><a class="text-light  nounderline" asp-action="FiltrMusicGenre" asp-controller="Home" asp-route-Name="@musicgenre.MusicGenreName">@musicgenre.MusicGenreName</a></div>*@
+                <div>
+                    <form asp-action="FiltrMusicGenre" asp-controller="Home">
+                        <input type="hidden" asp-for=" @Model.City" />
+                        <input type="hidden" asp-for=" @Model.County" /> 
+                        <input type="hidden" asp-for=" @Model.Province" />
+                       <input type="hidden" name="MusicGenreName" value="@musicgenre.MusicGenreName" />
+                        <button type="submit" class="btn btn-danger">@musicgenre.MusicGenreName</button>
+                    </form>
+                </div>
+
+
+            }
+            <div class="col-sm-2 border  text-center bg-success"><a class="text-light  nounderline" asp-action="MapDisplay" asp-controller="Home">Zmień Położenie</a></div>
+        }
+
+
+    </div>
+
+    <div class="row">
+        <table class="table table-responsive-lg table-bordered">
+            <thead class="text-center">
+                <tr>
+                    <th colspan="2">Utwory</th>
+
+
+                    <th colspan="2">Płyty</th>
+
+                </tr>
+                <tr>
+                    <th>Najwyżej Oceniane</th>
+                    <th>Najnowsze</th>
+                    <th>Najwyżej Oceniane</th>
+                    <th>Najnowsze</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><th class="text-center" colspan="4"> Polska</th></tr>
+
+                @for (int i = 0; i < 5; i++)
+                {
+                    <tr>
+                        <td><span class="badge badge-dark">@Model.ListOfHighestRatedSongs[i].Votes.Count</span>      <a class="btn btn-success" asp-controller="Player" asp-action="BandsDisplay" asp-route-SongId="@Model.ListOfHighestRatedSongs[i].SongId"> @Model.ListOfHighestRatedSongs[i].SongName</a>       </td>
+                        <td>   <a class="btn btn-info" asp-controller="Player" asp-action="BandsDisplay" asp-route-SongId="@Model.ListOfNewestsSongs[i].SongId"> @Model.ListOfNewestsSongs[i].SongName</a>  </td>
+                        <td><span class="badge badge-dark">@Model.ListOfHighestRatedBandsRecord[i].Votes.Count </span> <a class="btn btn-warning" asp-controller="Player" asp-action="BandsDisplay" asp-route-BandsRecordId="@Model.ListOfHighestRatedBandsRecord[i].BandsRecordId"> @Model.ListOfHighestRatedBandsRecord[i].BandsRecordName</a>      </td>
+                        <td><a class="btn btn-primary" asp-controller="Player" asp-action="BandsDisplay" asp-route-BandsRecordId="@Model.ListOfNewestsBandsRecord[i].BandsRecordId">@Model.ListOfNewestsBandsRecord[i].BandsRecordName</a></td>
+                    </tr>
+
+                }
+
+
+                <tr><th class="text-center" colspan="4">Województwo @Model.Province</th></tr>
+                @for (int i = 0; i < 5; i++)
+                {
+                    <tr>
+                        <td><span class="badge badge-dark">@Model.ListOfHighestRatedSongsLocalProvince[i].Votes.Count</span> <a class="btn btn-success" asp-controller="Player" asp-action="BandsDisplay" asp-route-SongId="@Model.ListOfHighestRatedSongsLocalProvince[i].SongId">@Model.ListOfHighestRatedSongsLocalProvince[i].SongName </a>       </td>
+                        <td> <a class="btn btn-info" asp-controller="Player" asp-action="BandsDisplay" asp-route-SongId="@Model.ListOfNewestsSongsLocalProvince[i].SongId">@Model.ListOfNewestsSongsLocalProvince[i].SongName</a></td>
+                        <td><span class="badge badge-dark">@Model.ListOfHighestRatedBandsRecordLocalProvince[i].Votes.Count</span> <a class="btn btn-warning" asp-controller="Player" asp-action="BandsDisplay" asp-route-BandsRecordId="@Model.ListOfHighestRatedBandsRecordLocalProvince[i].BandsRecordId"> @Model.ListOfHighestRatedBandsRecordLocalProvince[i].BandsRecordName</a>        </td>
+                        <td><a class="btn btn-primary" asp-controller="Player" asp-action="BandsDisplay" asp-route-BandsRecordId="@Model.ListOfNewestsBandsRecordLocalProvince[i].BandsRecordId">@Model.ListOfNewestsBandsRecordLocalProvince[i].BandsRecordName</a></td>
+                    </tr>
+
+                }
+                <tr><th class="text-center" colspan="4">Powiat @Model.County</th></tr>
+                @for (int i = 0; i < 5; i++)
+                {
+                    <tr>
+                        <td><span class="badge badge-dark">@Model.ListOfHighestRatedSongsLocalCounty[i].Votes.Count</span> <a class="btn btn-success" asp-controller="Player" asp-action="BandsDisplay" asp-route-SongId=" @Model.ListOfHighestRatedSongsLocalCounty[i].SongId"> @Model.ListOfHighestRatedSongsLocalCounty[i].SongName </a>   </td>
+                        <td> <a class="btn btn-info" asp-controller="Player" asp-action="BandsDisplay" asp-route-SongId="@Model.ListOfNewestsSongsLocalCounty[i].SongId">@Model.ListOfNewestsSongsLocalCounty[i].SongName</a> </td>
+                        <td><span class="badge badge-dark">@Model.ListOfHighestRatedBandsRecordLocalCounty[i].Votes.Count</span> <a class="btn btn-warning" asp-controller="Player" asp-action="BandsDisplay" asp-route-BandsRecordId="@Model.ListOfHighestRatedBandsRecordLocalCounty[i].BandsRecordId">@Model.ListOfHighestRatedBandsRecordLocalCounty[i].BandsRecordName</a> </td>
+                        <td><a class="btn btn-primary" asp-controller="Player" asp-action="BandsDisplay" asp-route-BandsRecordId="@Model.ListOfNewestsBandsRecordLocalCounty[i].BandsRecordId">@Model.ListOfNewestsBandsRecordLocalCounty[i].BandsRecordName</a> </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div id="search">
+        <form asp-action="FindSong_BandsRecord_Band" asp-controller="Player">
+            <input class="form-control" type="text" placeholder="Szukaj" aria-label="Search" name="Name">
+            <button type="submit">Szukaj</button>
+        </form>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="card col-lg-3">
+                <div class="img-thumbnail">
+                    <img class="card-img-top " src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+
+                <div class="card-header">
+                    <p class="card-text">User Name</p>  <p class="card-text">@DateTime.Now</p>
+                </div>
+                <div class="card-body">
+                   Miejsce na komentarz
+                </div>
+            </div>
+            <div class="card col-lg-3">
+                <div class="img-thumbnail">
+                    <img class="card-img-top " src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+
+                <div class="card-header">
+                    <p class="card-text">User Name</p>  <p class="card-text">@DateTime.Now</p>
+                </div>
+                <div class="card-body">
+                    Miejsce na komentarz
+                </div>
+            </div>
+
+            <div class="card col-lg-3">
+                <div class="img-thumbnail">
+                    <img class="card-img-top " src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+
+                <div class="card-header">
+                    <p class="card-text">User Name</p>  <p class="card-text">@DateTime.Now</p>
+                </div>
+                <div class="card-body">
+                    Miejsce na komentarz
+                </div>
+            </div>
+
+
+            <div class="card col-lg-3">
+                <div class="img-thumbnail">
+                    <img class="card-img-top " src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+
+                <div class="card-header">
+                    <p class="card-text">User Name</p>  <p class="card-text">@DateTime.Now</p>
+                </div>
+                <div class="card-body">
+                    Miejsce na komentarz
+                </div>
+            </div>
+            <div class="card col-lg-3">
+                <div class="img-thumbnail">
+                    <img class="card-img-top " src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+
+                <div class="card-header">
+                    <p class="card-text">User Name</p>  <p class="card-text">@DateTime.Now</p>
+                </div>
+                <div class="card-body">
+                    Miejsce na komentarz
+                </div>
+            </div>
+
+            <div class="card col-lg-3">
+                <div class="img-thumbnail">
+                    <img class="card-img-top " src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+
+                <div class="card-header">
+                    <p class="card-text">User Name</p>  <p class="card-text">@DateTime.Now</p>
+                </div>
+                <div class="card-body">
+                    Miejsce na komentarz
+                </div>
+            </div>
+
+            <div class="card col-lg-3">
+                <div class="img-thumbnail">
+                    <img class="card-img-top " src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+
+                <div class="card-header">
+                    <p class="card-text">User Name</p>  <p class="card-text">@DateTime.Now</p>
+                </div>
+                <div class="card-body">
+                    Miejsce na komentarz
+                </div>
+            </div>
+            <div class="card col-lg-3">
+                <div class="img-thumbnail">
+                    <img class="card-img-top " src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+
+                <div class="card-header">
+                    <p class="card-text">User Name</p>  <p class="card-text">@DateTime.Now</p>
+                </div>
+                <div class="card-body">
+                    Miejsce na komentarz
+                </div>
+            </div>
+
+            <div class="card col-lg-3">
+                <div class="img-thumbnail">
+                    <img class="card-img-top " src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                </div>
+
+                <div class="card-header">
+                    <p class="card-text">User Name</p>  <p class="card-text">@DateTime.Now</p>
+                </div>
+                <div class="card-body">
+                    Miejsce na komentarz
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,63 @@
+﻿@model Song
+@{
+    ViewData["Title"] = "SongDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12"><h1>@Model.SongName</h1></div>
+        <div class="col-lg-12">
+            <p>@Model.SongText</p>
+        </div>
+    </div>
+    <div class="row">
+        @if (Model.Pictures != null && Model.Pictures.Count > 0)
+        {
+
+            foreach (var picture in Model.Pictures)
+            {
+                <div class="col-lg-12">
+                    <img src="@Url.Content("~/Images/"+picture.PicturePath)" />
+                </div>
+            }
+
+        }
+    </div>
+    <div class="row">
+        @if (Model.Awards != null && Model.Awards.Count > 0)
+        {
+
+            foreach (var award in Model.Awards)
+            {
+                <div class="col-lg-3">
+                    <p>@award.AwardName</p>
+                </div>
+            }
+
+        }
+    </div>
+    <div class="row">
+        @if (Model.Votes != null && Model.Votes.Count > 0)
+        {
+
+            <h3>Ilość zdobytych głosów @Model.Votes.Count</h3>
+
+        }
+            
+    </div>
+    <div class="col-lg-12">
+        <audio controls>
+            <source src="@Url.Content("~/Songs/"+Model.Path)" type="audio/mp3">
+            <source src="@Url.Content("~/Songs/"+Model.Path) " type="audio/vnd.wave">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+
+</div>

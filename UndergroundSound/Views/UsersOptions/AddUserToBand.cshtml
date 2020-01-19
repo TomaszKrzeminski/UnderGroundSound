@@ -1,0 +1,31 @@
+﻿@model AddUserToBandViewModel
+@{
+    ViewData["Title"] = "AddUserToBand";
+}
+
+<h2>AddUserToBand</h2>
+
+<div class="container">
+
+    @foreach (var item in Model.list)
+    {
+
+        <form asp-action="AddUserToBand" method="post">
+            <div class="row">
+                <div>
+                    <input type="hidden" value="@item.Id" name="UserId" />
+                    <input type="hidden" value="@Model.BandId" name="BandId" />
+                    <label>@item.Email</label><button type="submit" class="btn btn-warning">Dodaj</button>
+                </div>
+
+            </div>
+
+
+
+        </form>
+
+
+    }
+
+
+</div>foreach

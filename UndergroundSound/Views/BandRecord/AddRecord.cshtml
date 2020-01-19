@@ -1,0 +1,49 @@
+﻿@model AddRecordViewModel
+@{
+    ViewData["Title"] = "AddRecord";
+}
+
+<h2>Dodaj Płytę</h2>
+
+<div class="container">
+    <div asp-validation-summary=" All" class="text-danger"></div>
+    <form asp-controller="BandRecord" asp-action="AddRecord" method="post">
+
+        <div>
+            <input type="hidden" asp-for="@Model.BandId" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.bandsrecord.BandsRecordName">Nazwa Płyty</label>
+            <input class="form-control" asp-for="@Model.bandsrecord.BandsRecordName" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.bandsrecord.ReleaseOfTheCd">Data Wydania</label>
+            <input class="form-control" id="DataPicker" asp-for="@Model.bandsrecord.ReleaseOfTheCd" />
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-success">Dodaj</button>
+        </div>
+
+
+    </form>
+</div>
+
+
+
+@section Scripts
+    {
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('#DataPicker').datepicker(
+                $.datepicker.regional["pl"]
+            );
+        });
+    </script>
+
+}

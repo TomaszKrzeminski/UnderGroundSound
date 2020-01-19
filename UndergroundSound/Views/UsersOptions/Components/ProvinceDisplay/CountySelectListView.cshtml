@@ -1,0 +1,14 @@
+﻿@model Province
+
+
+<div class="form-group">
+    <label>Powiat</label>
+    <select class="form-control " id="SelectProvince" name="Place.County">
+        @foreach (var county in Model.CountyList)
+        {
+            <option id="x" class="ProvinceSelect">@county.CountyName</option>
+
+        }
+    </select>
+</div>
+

@@ -1,0 +1,26 @@
+﻿@model List<MusicVideo>
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Teledyski</h2>
+
+<div class="container">
+    @if (Model != null && Model.Count > 0)
+    {
+        foreach (var musicVideo in Model)
+        {
+            <video controls>
+                <source src="@Url.Content("~/MusicVideos/"+musicVideo.MusicVideoPath)" type="audio/vnd.wave">
+                <source src="@Url.Content("~/MusicVideos/"+musicVideo.MusicVideoPath) " type="video/mp4">
+                Your browser does not support the audio element.
+            </video>
+        }
+
+
+    }
+
+
+</div>
+

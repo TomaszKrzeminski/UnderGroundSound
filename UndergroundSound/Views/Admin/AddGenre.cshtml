@@ -1,0 +1,22 @@
+﻿@model MusicGenre
+@{
+    ViewData["Title"] = "AddGenre";
+}
+
+<h2>AddGenre</h2>
+<form method="post" asp-action="AddGenre" asp-controller="Admin">
+<div class="form-group">
+    <label for="MusicGenreName"></label>
+    <input class="form-control" asp-for="MusicGenreName" />
+</div>
+<div class="form-group">
+    <label  for="MusicGenreDescription"></label>
+    <input class="form-control" asp-for="MusicGenreDescription" />
+</div>
+    <div>
+        <button type="submit" class="btn btn-primary">Dodaj</button>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-info">Anuluj</a>
+    </div>
+
+</form>
+

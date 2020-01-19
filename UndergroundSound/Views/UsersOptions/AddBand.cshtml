@@ -1,0 +1,152 @@
+﻿@model AddBandViewModel
+@{
+    ViewData["Title"] = "AddBand";
+   
+
+}
+
+
+
+<div class="container">
+    <div class="row ">
+        <div class="text-center">
+            <h2> Utwórz Zespół</h2>
+        </div>
+
+    </div>
+
+
+
+
+    <div asp-validation-summary=" All" class="text-danger"></div>
+    <form method="post" asp-action="AddBand" asp-controller="UsersOptions">
+
+        <div class="form-group">
+            <label>Styl Muzyczny</label>
+            <select class="form-control" name="MusicGenre">
+                @foreach (var item in Model.MusicGenres)
+                {
+                    <option>@item</option>
+                }
+            </select>
+        </div>
+
+        <div>
+            <input type="hidden" name="AppUserId" value="@Model.AppUserId" />
+        </div>
+
+        <div>
+            @Html.Hidden("AppUserId", Model.AppUserId)
+        </div>
+        <div class="form-group">
+
+            <label name="BandName">Nazwa zespołu</label>
+            <input name="BandName" class="form-control" />
+        </div>
+
+
+        <div class="form-group">
+            <label>Województwo</label>
+            <select class="form-control " id="SelectProvince" name="Place.Province" >
+                @foreach (var province in Model.ProvincesList)
+                {
+                    <option id="x" class="ProvinceSelect">@province.ProvinceName</option>
+                    
+                }
+            </select>
+        </div>
+
+
+
+
+       <div id="SelectCounty">
+           @*@await  Component.InvokeAsync("ProvinceDisplay",new {Name= "kujawsko-pomorskie" })*@
+
+
+       </div>
+
+
+
+        <div class="form-group">
+            <label name="FormedPlace">Miejsce powstania</label>
+            <input name="FormedPlace" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label name="History">Historia zespołu</label>
+            <textarea name="History" class="form-control"></textarea>
+
+        </div>
+        <div>
+            <label name="FormedDate">Data założenia</label>
+            <input name="FormedDate" class="form-control" id="DataPicker" />
+        </div>
+        <br />
+        <div>
+            <button class="btn btn-dark" type="submit">Dodaj</button>
+            <button class="btn btn-warning" asp-action="Home" asp-controller="UsersPanel">Anuluj</button>
+
+        </div>
+
+
+    </form>
+
+
+
+
+
+
+
+</div>
+
+
+@section Scripts
+    {
+   
+
+
+    <script type="text/javascript">
+       
+
+
+        $(document).ready(function ()
+        {
+            $(function () {
+                $('#DataPicker').datepicker(
+                    $.datepicker.regional["pl"]
+                );
+            });
+
+            $("#SelectProvince").change(function ()
+            {
+               
+                var Name = $(this).val();
+               
+
+                $.ajax({
+                    url:'@Url.Action("LoadComponent")' ,
+               type: "post",
+                             
+                    data: { id: $("#SelectProvince").val() },
+                    complete: function (result) {
+                        console.log(result.responseText);
+                        $("#SelectCounty").html(result.responseText);
+                    }
+           });
+
+
+
+
+
+
+            });
+
+
+        });
+
+
+
+
+    </script>
+
+}

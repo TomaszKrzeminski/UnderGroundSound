@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "UsersPanel";
+}
+
+
+    <table class="table  table-striped table-bordered">
+        <thead>
+           <tr>
+               <th class=" text-center" colspan="4"><h2>Opcje</h2></th>
+           </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><h5>Zespół</h5><a asp-action="Home" asp-controller=""></a></td>
+                <td><a asp-action="AddBand" asp-controller="UsersOptions" class="btn btn-warning">Dodaj</a></td>
+                <td><a asp-action="RemoveBand" asp-controller="UsersOptions" class="btn btn-danger">Usuń</a></td>
+                <td><a asp-action="EditBand" asp-controller="UsersOptions" class="btn btn-primary">Edytuj</a></td>
+               
+
+            </tr>
+         
+        </tbody>
+    </table>
+   

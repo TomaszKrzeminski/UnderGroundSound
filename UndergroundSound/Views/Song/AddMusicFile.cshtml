@@ -1,0 +1,13 @@
+﻿@model AddMusicFileViewModel
+@{
+    ViewData["Title"] = "AddMusicFile";
+}
+
+<div asp-validation-summary=" All" class="text-danger"></div>
+
+<form asp-action="AddMusicFile" enctype="multipart/form-data" method="post">
+
+    <input type="file" asp-for="@Model.SongFile" />
+    <input type="hidden" asp-for="@Model.SongId" />
+    <input type="submit"  value="Dodaj"/>
+</form>

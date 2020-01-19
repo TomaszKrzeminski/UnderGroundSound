@@ -1,0 +1,95 @@
+﻿@model List<Song>
+@{
+    ViewData["Title"] = "SongList";
+}
+
+<table class="table-responsive">
+    <thead>
+        <tr>
+            <th> Piosenki</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in @Model)
+        {
+        <tr>
+            <td>@item.SongName</td>
+            <td>&nbsp;</td>
+            <td><a class="btn btn-danger" asp-controller="Song" asp-action="RemoveSong" asp-route-Id="@item.SongId">Usuń</a></td>
+            <td> <a class="btn btn-success" asp-controller="Song" asp-action="EditSong" asp-route-Id="@item.SongId">Edytuj </a> </td>
+            <td> <a class="btn btn-primary" asp-controller="Song" asp-action="AddMusicFile" asp-route-Id="@item.SongId">Dodaj Plik </a> </td>
+            <td>
+                <form asp-controller="FileAdder" asp-action="AddFile" method="get">
+                    <input type="hidden" name="Id" value="@item.SongId" />
+                    <input type="hidden" name="ObjectType" value="Song" />
+                    <input type="hidden" name="FileType" value=0 />
+                    <input class="btn btn-warning" type="submit" value="Dodaj zdjecia" />
+
+
+                </form>
+            </td>
+
+            <td>
+                <form asp-controller="FileAdder" asp-action="ShowPictures" method="get">
+                    <input type="hidden" name="Id" value="@item.SongId" />
+                    <input type="hidden" name="ObjectType" value="Song" />
+                    <input class="btn btn-warning" type="submit" value="Pokaż zdjęcia" />
+
+
+                </form>
+            </td>
+            <td>
+                <form asp-controller="FileAdder" asp-action="AddFile" method="get">
+                    <input type="hidden" name="Id" value="@item.SongId" />
+                    <input type="hidden" name="ObjectType" value="Song" />
+                    <input type="hidden" name="FileType" value=1 />
+                    <input class="btn btn-warning" type="submit" value="Dodaj Teledysk" />
+
+
+                </form>
+            </td>
+
+            <td>
+                <form asp-controller="FileAdder" asp-action="ShowMusicVideo" method="get">
+                    <input type="hidden" name="Id" value="@item.SongId" />
+                    <input type="hidden" name="ObjectType" value="Song" />
+                    <input class="btn btn-warning" type="submit" value="Pokaż Teledyski" />
+
+
+                </form>
+            </td>
+            <td>
+                <form asp-controller="FileAdder" asp-action="AddFile" method="get">
+                    <input type="hidden" name="Id" value="@item.SongId" />
+                    <input type="hidden" name="ObjectType" value="Song" />
+                    <input type="hidden" name="FileType" value=2 />
+                    <input class="btn btn-warning" type="submit" value="Dodaj Nagranie" />
+
+
+                </form>
+            </td>
+
+            <td>
+                <form asp-controller="FileAdder" asp-action="ShowMusicFile" method="get">
+                    <input type="hidden" name="Id" value="@item.SongId" />
+                    <input type="hidden" name="ObjectType" value="Song" />
+                    <input class="btn btn-warning" type="submit" value="Odsłuchaj Nagranie" />
+
+
+                </form>
+            </td>
+        </tr>
+        }
+
+
+    </tbody>
+</table>
+
+<div class="container">
+    <div class="row">
+        <a class="btn btn-success" asp-controller="Song" asp-action="AddSong" asp-route-Id="@ViewBag.BandId">Dodaj Utwór</a>
+    </div>
+</div>
+

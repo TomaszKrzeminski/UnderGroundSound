@@ -1,0 +1,44 @@
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.deps.json
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.runtimeconfig.json
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.runtimeconfig.dev.json
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.dll
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.csproj.CoreCompileInputs.cache
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.AssemblyInfoInputs.cache
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.AssemblyInfo.cs
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.pdb
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.dll
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.pdb
+C:\Users\tomek\Documents\Visual Studio 2017\Projects\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.csprojAssemblyReference.cache
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.deps.json
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.runtimeconfig.json
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.runtimeconfig.dev.json
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.dll
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.pdb
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.csproj.CoreCompileInputs.cache
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.AssemblyInfoInputs.cache
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.AssemblyInfo.cs
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.dll
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.pdb
+C:\Users\tomek\Desktop\RepoPlatformaMuzyczna\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.csprojAssemblyReference.cache
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.deps.json
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.runtimeconfig.json
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.runtimeconfig.dev.json
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.dll
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.pdb
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.csprojAssemblyReference.cache
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.csproj.CoreCompileInputs.cache
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.AssemblyInfoInputs.cache
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.AssemblyInfo.cs
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.dll
+C:\Users\tomek\Desktop\UnderGroundSound-master\UndergroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.pdb
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.deps.json
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.runtimeconfig.json
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.runtimeconfig.dev.json
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.dll
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\bin\Debug\netcoreapp2.0\UndergroundSound.pdb
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.csprojAssemblyReference.cache
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.csproj.CoreCompileInputs.cache
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.AssemblyInfoInputs.cache
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.AssemblyInfo.cs
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.dll
+C:\Users\tomek\Desktop\UnderRepo\repo\UnderGroundSound\UndergroundSound\obj\Debug\netcoreapp2.0\UndergroundSound.pdb

@@ -1,0 +1,46 @@
+﻿@model FindViewModel
+@{
+    ViewData["Title"] = "FindSong_BandsRecord_Band";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Znaleziono </h2>
+
+<div class="container">
+    @if (Model.Bands != null)
+    {
+        foreach (var item in Model.Bands)
+        {
+            <div class="row">
+                <form asp-controller="Player" asp-action="BandsDisplay">
+                    <input type="hidden" name="BandId" value="@item.BandId" />
+                    <button class="btn btn-warning" type="submit">@item.BandName</button>
+                </form>
+            </div>
+        }
+    }
+    @if (Model.BandsRecords != null)
+    {
+        foreach (var item in Model.BandsRecords)
+        {
+            <div class="row">
+                <form asp-controller="Player" asp-action="BandsDisplay">
+                    <input type="hidden" name="BandsRecordId" value="@item.BandsRecordId" />
+                    <button class="btn btn-warning" type="submit">@item.BandsRecordName</button>
+                </form>
+            </div>
+        }
+    }
+    @if (Model.Bands != null)
+    {
+        foreach (var item in Model.Songs)
+        {
+            <div class="row">
+                <form asp-controller="Player" asp-action="BandsDisplay">
+                    <input type="hidden" name="SongId" value="@item.SongId" />
+                    <button class="btn btn-warning" type="submit">@item.SongName</button>
+                </form>
+            </div>
+        }
+    }
+</div>

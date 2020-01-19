@@ -1,0 +1,185 @@
+﻿@model Band
+@{
+    ViewData["Title"] = "BandsDisplay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .GreyText{color:gray;}
+</style>
+
+
+<div class="container">
+    <div class="col-lg-12">
+        <h1>@Model.BandName</h1>
+    </div>
+   
+
+    <table class="table-responsive table-striped ">
+        <thead>
+            <tr>
+                <th >Data Utworzenia</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th >Miejsce Utworzenia</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.FormedDate.ToShortDateString()</td>
+
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>@Model.FormedPlace</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Historia zespołu</h3>
+        </div>
+
+        <div class="col-lg-12">
+            <p>@Model.History</p>
+        </div>
+
+    </div>
+   
+    <br />
+   <div class="col-lg-12">
+       <h2><strong>Płyty</strong></h2>
+   </div>
+    <br />
+    <div class="row">
+        @if (Model.BandsRecords != null && Model.BandsRecords.Count > 0)
+        {
+
+
+            @foreach (var item in Model.BandsRecords)
+            {
+        <div class="col-lg-12">
+            <table class="table-responsive table-striped">
+                <thead>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>Premiera</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>Oddaj Głos na Płytę</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>Oddano Głosów na Płyte</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@item.BandsRecordName</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>@item.ReleaseOfTheCd.ToShortDateString()</td>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th><a class="btn btn-dark " asp-controller="Vote" asp-action="BandsRecordAddVote" asp-route-Id="@item.BandsRecordId">Głosuj</a></th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th> @item.Votes.Count</th>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+        </div>
+                <br />
+                <br />
+                <br />
+                <div class="col-lg-10">
+                    <ol>
+
+                        @if (item.Songs != null && item.Songs.Count > 0)
+                        {
+                            foreach (var song in item.Songs)
+                            {
+                                <li>
+
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <a class="btn btn-warning" asp-action="SongDetails" asp-controller="Player" asp-route-Id="@song.SongId">@song.SongName</a>
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <audio controls>
+                                                <source src="@Url.Content("~/Songs/"+song.Path)" type="audio/mp3">
+                                                <source src="@Url.Content("~/Songs/"+song.Path) " type="audio/vnd.wave">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <a class="btn btn-light " asp-controller="Vote" asp-action="SongAddVote" asp-route-Id="@song.SongId">Głosuj</a>
+                                        </div>
+                                        <div class="col-lg-2">
+                                           <h5 > <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>    @song.Votes.Count</h5>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </li>
+
+                            }
+                        }
+
+
+                    </ol>
+                </div>
+
+                <br />
+                <br />
+                <hr />
+            }
+
+
+
+        }
+
+
+
+    </div>
+
+
+
+
+
+
+
+   
+
+
+
+
+
+</div>
+

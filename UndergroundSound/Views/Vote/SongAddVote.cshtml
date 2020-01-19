@@ -1,0 +1,27 @@
+﻿@model CheckAvailableVotes
+@{
+    ViewData["Title"] = "BandsRecordAddVote";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Oddaj Głos na utwór @Model.song.SongName   zespołu  @Model.song.BandsRecord.BandsRecordName</h2>
+
+<div class="container">
+    <form asp-controller="Vote" asp-action="SongAddVote" method="post">
+        <div class="form-group">
+
+            <input type="hidden" asp-for="@Model.song.SongId" /> 
+            <input type="hidden" asp-for="@Model.song.SongName" /> 
+            <input type="hidden" asp-for="@Model.song.BandsRecord.Band.BandId" /> 
+          
+
+
+            <input class="btn btn-danger" type="submit" value="Oddaj Głos" />
+            @Html.ActionLink("Anuluj", "BandsDisplay", "Player", new { BandId = @Model.song.BandsRecord.Band.BandId}, new { @class = "btn btn-success" })
+        </div>
+
+
+
+
+    </form>
+</div>

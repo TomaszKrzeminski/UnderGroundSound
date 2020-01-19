@@ -1,0 +1,17 @@
+﻿@model string
+
+
+
+
+@if (!String.IsNullOrEmpty(Model)&&Model!="No Files")
+{
+    <audio controls>
+        <source src="@Url.Content("~/Songs/"+@Model)" type="audio/mp3">
+        <source src="@Url.Content("~/Songs/"+@Model) " type="audio/vnd.wave">
+        Your browser does not support the audio element.
+    </audio>
+}
+else
+{
+    <h4>Brak plików do odsłuchania</h4>
+}

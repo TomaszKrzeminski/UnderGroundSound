@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MusicGenre>
+@{
+    ViewData["Title"] = "RemoveGenre";
+}
+
+<h2>RemoveGenre</h2>
+
+@if (Model.Count() > 0)
+{
+
+<div class="container">
+    @foreach (var musicgenre in Model)
+    {
+    <div class="row">
+        <span>@musicgenre.MusicGenreName</span> @*@Html.ActionLink("Usuń", "DeleteGenre", "Admin", new { id=musicgenre.MusicGenreId})*@ <a asp-action="DeleteGenre" asp-controller="Admin" asp-route-Id="@musicgenre.MusicGenreId">Usuń</a>
+    </div>
+    }
+</div>
+
+
+
+}
+else
+{
+    <h1 class="text-center text-dark">Brak Gatunków Muzycznych</h1>
+}

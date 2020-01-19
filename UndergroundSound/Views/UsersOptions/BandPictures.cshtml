@@ -1,0 +1,23 @@
+﻿@model List<Picture>
+@{
+    ViewData["Title"] = "BandPictures";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BandPictures</h2>
+
+<div class="container">
+    @if (Model != null && Model.Count > 0)
+    {
+        foreach (var picture in Model)
+        {
+            <div class="row">
+                <img src="@Url.Content("~/Images/"+picture.PicturePath)" />
+            </div>
+        }
+
+
+    }
+
+
+</div>

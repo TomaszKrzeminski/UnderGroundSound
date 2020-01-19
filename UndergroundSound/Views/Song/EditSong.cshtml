@@ -1,0 +1,39 @@
+﻿@model Song
+@{
+    ViewData["Title"] = "EditSong";
+}
+
+<h2>Edytuj Utwór</h2>
+<div asp-validation-summary=" All" class="text-danger"></div>
+<div class="container">
+    <form asp-controller="Song" asp-action="EditSong">
+        <input type="hidden" asp-for="@Model.SongId" />
+        <div class="form-group">
+            <label asp-for="@Model.SongName">Nazwa Piosenki</label>
+            <input class="form-control" asp-for="@Model.SongName" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.SongText">Text Piosenki</label>
+            <input class="form-control" asp-for="@Model.SongText" />
+        </div>
+
+        @if (Model.Path != null)
+        {
+        <div class="container">
+            <h4 class="text-dark">Posłuchaj utworu</h4>
+            <audio controls>
+                <source src="@Url.Content("~/Songs/"+Model.Path)" type="audio/mp3">
+                <source src="@Url.Content("~/Songs/"+Model.Path) " type="audio/vnd.wave">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+           
+        }
+<br />
+
+
+        <div>
+            <button type="submit">Dodaj</button>
+        </div>
+    </form>
+</div>

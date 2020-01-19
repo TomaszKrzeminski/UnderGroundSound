@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Band>
+@{
+    ViewData["Title"] = "EditBand";
+}
+
+<h2 class="text text-center">Edytuj Zespół</h2>
+
+
+@if (Model != null && Model.Count() > 0)
+{
+
+
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td><h5>@item.BandName</h5></td>
+            <td><a asp-action="EditBandById" class="btn btn-success" asp-controller="UsersOptions" asp-route-id="@item.BandId">Edytuj</a></td>
+            @*<td><a asp-action="AddPictureFile" class="btn btn-success" asp-controller="UsersOptions" asp-route-id="@item.BandId">Dodaj Zdjęcie</a></td>*@
+            <td>
+                <form asp-controller="FileAdder" asp-action="ShowPictures" method="get">
+                    <input type="hidden" name="Id" value="@item.BandId" />
+                    <input type="hidden" name="ObjectType" value="Band" />
+                    <input class="btn btn-warning" type="submit" value="Pokaż zdjęcia" />
+
+
+                </form>
+            </td>
+            <td>
+                <form asp-controller="FileAdder" asp-action="AddFile" method="get">
+                    <input type="hidden" name="Id" value="@item.BandId" />
+                    <input type="hidden" name="ObjectType" value="Band" />
+                    <input type="hidden" name="FileType" value=0 /> 
+                    <input class="btn btn-warning" type="submit" value="Dodaj zdjecia" />
+
+
+                </form>
+            </td>
+            <td><a asp-action="EditBandMembers" asp-controller="UsersOptions" class="btn btn-primary" asp-route-id="@item.BandId">Zarządzaj Członkami</a></td>
+            <td><a asp-action="RecordList" asp-controller="BandRecord" class="btn btn-warning" asp-route-id="@item.BandId">Płyty</a></td>
+        </tr>
+        }
+
+
+
+    </tbody>
+</table>
+
+
+}

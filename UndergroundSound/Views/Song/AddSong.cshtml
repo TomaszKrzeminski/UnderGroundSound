@@ -1,0 +1,25 @@
+﻿@model AddSongViewModel
+@{
+    ViewData["Title"] = "AddSong";
+}
+
+<h2>Dodaj Utwór</h2>
+<div asp-validation-summary=" All" class="text-danger"></div>
+<div class="container">
+    <form asp-controller="Song" asp-action="AddSong">
+        <input type="hidden" asp-for="@Model.BandsRecordId" />  
+<div class="form-group">
+    <label asp-for="@Model.song.SongName">Nazwa Piosenki</label>
+    <input class="form-control" asp-for="@Model.song.SongName" />
+</div>
+<div class="form-group">
+    <label asp-for="@Model.song.SongText">Text Piosenki</label>
+    <input class="form-control" asp-for="@Model.song.SongText" />
+</div>
+
+
+<div>
+    <button type="submit">Dodaj</button>
+</div>
+</form>
+</div>

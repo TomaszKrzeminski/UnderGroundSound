@@ -1,0 +1,14 @@
+﻿@model AddImageViewModel
+@{
+    ViewData["Title"] = "AddPictureFile";
+}
+
+<div asp-validation-summary=" All" class="text-danger"></div>
+
+<form asp-action="AddPictureFile" enctype="multipart/form-data" method="post">
+
+    <input type="file" asp-for="@Model.ImageFile" />
+    <input type="hidden" asp-for="@Model.ObjectId" />
+    < <input type="hidden" asp-for="@Model.PictureObjectType" />
+    <input type="submit" value="Dodaj" />
+</form>

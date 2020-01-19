@@ -1,0 +1,65 @@
+﻿@model Band
+@{
+    ViewData["Title"] = "EditBandById";
+}
+
+<h2>EditBandById</h2>
+
+<form method="post" asp-action="EditBandById" asp-controller="UsersOptions">
+
+    <div asp-validation-summary=" All" class="text-danger"></div>
+
+
+
+
+
+
+    <div>
+        <input type="hidden" asp-for="MusicGenre.MusicGenreId" value="@Model.MusicGenre.MusicGenreId" />
+        <input type="hidden" asp-for="MusicGenre.MusicGenreName" value="@Model.MusicGenre.MusicGenreName" />
+        <input type="hidden" asp-for="MusicGenre.MusicGenreDescription" value="@Model.MusicGenre.MusicGenreDescription" />
+    </div>
+
+    <div>
+        <input type="hidden" asp-for="BandId" value="@Model.BandId" />
+    </div>
+
+    <div class="form-group">
+
+        <label asp-for="BandName">Nazwa zespołu</label>
+        <input asp-for="BandName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FormedPlace">Miejsce powstania</label>
+        <input asp-for="FormedPlace" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FormedDate">Data założenia</label>
+        <input asp-for="FormedDate" id="DataPicker" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="History">Historia zespołu</label>
+        <textarea asp-for="History" class="form-control"></textarea>
+
+    </div>
+
+
+
+    <button class="btn btn-dark" type="submit">Dodaj</button>
+    <button class="btn btn-warning" asp-action="Home" asp-controller="UsersPanel">Anuluj</button>
+</form>
+
+
+@section Scripts
+    {
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('#DataPicker').datepicker(
+                $.datepicker.regional['pl']
+            );
+        });
+    </script>
+        }

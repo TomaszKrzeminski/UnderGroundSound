@@ -1,0 +1,54 @@
+﻿@model List<BandsRecord>
+@{
+    ViewData["Title"] = "RecordList";
+}
+
+<table class="table-responsive">
+    <thead>
+        <tr>
+            <th>Nazwa Płyty</th><th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in @Model)
+        {
+        <tr>
+            <td>@item.BandsRecordName</td>
+            <td>&nbsp;</td>
+            <td><a class="btn btn-danger" asp-controller="BandRecord" asp-action="RemoveRecord" asp-route-Id="@item.BandsRecordId">Usuń</a></td>
+            <td> <a class="btn btn-success" asp-controller="BandRecord" asp-action="EditRecord" asp-route-Id="@item.BandsRecordId">Edytuj </a> </td>
+            
+            <td>
+                <form asp-controller="FileAdder" asp-action="AddFile" method="get">
+                    <input type="hidden" name="Id" value="@item.BandsRecordId" />
+                    <input type="hidden" name="ObjectType" value="BandsRecord" />
+                    <input type="hidden" name="FileType" value=0 />
+                    <input class="btn btn-warning" type="submit" value="Dodaj zdjecia" />
+
+
+                </form>
+            </td>
+            
+            <td>
+                <form asp-controller="FileAdder" asp-action="ShowPictures" method="get">
+                    <input type="hidden" name="Id" value="@item.BandsRecordId" />
+                    <input type="hidden" name="ObjectType" value="BandsRecord" />
+                    <input class="btn btn-warning" type="submit" value="Pokaż zdjęcia" />
+
+
+                </form>
+            </td>
+            <td> <a class="btn btn-primary" asp-controller="Song" asp-action="SongList" asp-route-Id="@item.BandsRecordId">Utwory </a> </td>
+        </tr>
+        }
+
+
+    </tbody>
+</table>
+
+<div class="container">
+    <div class="row">
+        <a class="btn btn-success" asp-controller="BandRecord" asp-action="AddRecord" asp-route-Id="@ViewBag.BandId">Dodaj Płyte</a>    
+    </div>
+</div>

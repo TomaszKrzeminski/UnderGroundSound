@@ -1,0 +1,24 @@
+﻿@model AddFileViewModel
+@{
+    ViewData["Title"] = "AddPictureFile";
+}
+
+<div asp-validation-summary=" All" class="text-danger"></div>
+
+<form asp-action="AddFile" enctype="multipart/form-data" method="post">
+
+    <input type="file" asp-for="@Model.FileToSave" />
+    <input type="hidden" asp-for="@Model.ObjectId" />
+    <input type="hidden" asp-for="@Model.ObjectType" />
+    <input type="hidden" asp-for="@Model.FileDetails.filetype" />
+    <input type="hidden" asp-for=" @Model.FileDetails.DirectoryToSave" />
+
+
+    @for (int i = 0; i < Model.FileDetails.ExtensionList.Count; i++)
+    {
+        <input type="hidden" asp-for="@Model.FileDetails.ExtensionList[i]" />
+    }
+    <input type="hidden" asp-for="@Model.FileDetails.MethodName" /> 
+    <input type="submit" value="Dodaj" />
+</form>
+
